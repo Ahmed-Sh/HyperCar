@@ -1,0 +1,19 @@
+{% extends 'tickets/base.html' %}
+
+{% block title %} Welcome to hypercar {% endblock %}
+
+{% block content %}
+{% for link, description in services.items %}
+    <ul>
+    <li> <a href="/get_ticket/{{link}}">{{description}}</a> </li>
+    </ul>
+{% endfor %}
+<div>
+    {% if next_ticket_number %}
+    Next ticket #{{ next_ticket_number }}
+    {% else %}
+    Waiting for the next client
+    {% endif %}
+</div>
+
+{% endblock %}
